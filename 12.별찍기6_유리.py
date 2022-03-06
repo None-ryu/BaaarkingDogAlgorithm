@@ -1,9 +1,10 @@
 
-# https://www.acmicpc.net/problem/2442
+# https://www.acmicpc.net/problem/2443 
+
 
 N = int(input())
 for i in range(N):
-    print(" "*(i) + "*"*(2*(4-i)+1))
+    print(" "*(i) + "*"*(2*(N-1-i)+1))
 
 
 """
