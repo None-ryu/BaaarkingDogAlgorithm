@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/10808
 word = input()
 result = []
 for num in range(97, 123):
