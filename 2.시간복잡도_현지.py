@@ -13,7 +13,7 @@
 # func2([4, 13, 63, 87], 4)
 
 def fun2(arr, N): #4 13 63 87
-    cnt = [0]*100
+    cnt = [0]*101
     check = 0
     for i in range(N):
         if cnt[100-arr[i]] == 1: #100-87 cnt[13]
