@@ -1,5 +1,5 @@
 import sys
-input =  sys.stdin.readline
+input = sys.stdin.readline
 N = int(input())
 queue = []
 for _ in range(N):
