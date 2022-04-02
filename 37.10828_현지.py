@@ -1,5 +1,5 @@
 import sys
-input =  sys.stdin.readline
+input = sys.stdin.readline
 stack = []
 call = int(input())
 for i in range(call):
