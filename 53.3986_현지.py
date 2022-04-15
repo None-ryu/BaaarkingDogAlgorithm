@@ -7,7 +7,6 @@ for i in arr:
     Ast = 0
     Bst = 0
     call = []
-    #able = 0
     for j in list(i):
         if j == "A":
             if Ast == 0:
@@ -31,7 +30,6 @@ for i in arr:
                 else:
                     Bst += 1
                     call.append(2)
-    #if able == 0:
     if Ast == 0 and Bst == 0:
             result += 1
 print(result)
