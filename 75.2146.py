@@ -55,8 +55,3 @@ for i in range(N):
         if vis[i][j] == -1:
             findbfs(j, i)
 print(way)
-# for i in graph:
-#     print(i)
-# print("-----------------")
-# for i in vis:
-#     print(i)
