@@ -4,7 +4,6 @@ N = input()
 stack = []
 open = False
 cnt = 0
-
 for txt in N:
     if txt == "(":
         stack.append(txt)

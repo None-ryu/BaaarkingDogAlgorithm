@@ -13,12 +13,10 @@ for i in B:
 
 cnt = 0
 for k, v in Adict.items():
-    print(k, v)
     cnt += abs(Bdict[k] - v)
     Bdict[k] = 0
     Adict[k] = 0
 for k, v in Bdict.items():
-    print(k, v)
     cnt += abs(Adict[k] - v)
     Bdict[k] = 0
     Adict[k] = 0

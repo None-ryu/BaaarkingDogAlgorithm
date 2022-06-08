@@ -8,7 +8,7 @@ dq = deque([])
 for h in range(H):
     graph.append([])
     for n in range(N):   
-        tmplist = list(map(int, sys.stdin.readline().split()))      
+        tmplist = list(map(int, sys.stdin.readline().split()))       # sys.stdin.readline().split() 없으면 시간초과남
         graph[h].append(tmplist)        
         for num in range(len(tmplist)):            
             if tmplist[num] == 1:

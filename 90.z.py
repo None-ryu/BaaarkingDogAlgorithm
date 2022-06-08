@@ -1,5 +1,4 @@
 # https://www.acmicpc.net/problem/1074
-
 result = 0
 def func(n, x, y):
     global result    
@@ -28,5 +27,5 @@ def func(n, x, y):
     func(n//2, x, y)
 
 n,y,x = map(int, input().split()) #2 3 1
-func( (2**n)//2, x+1, y+1) # 2 4
+func( (2**n)//2, x+1, y+1) # 2 2 4
 print(result)

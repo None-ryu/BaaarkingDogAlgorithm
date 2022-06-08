@@ -47,3 +47,6 @@ def bfs():
         print("IMPOSSIBLE")
 
 bfs()
+
+# 불이 먼저 지훈이가 먼저? https://www.acmicpc.net/board/view/31806 https://www.acmicpc.net/board/view/63687
+# 반례 https://www.acmicpc.net/board/view/31494 불이 여러개인 경우를 고려하지 않아서 실패뜸

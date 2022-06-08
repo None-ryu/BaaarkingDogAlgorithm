@@ -1,54 +1,46 @@
-# https://www.acmicpc.net/problem/2468
+# https://www.acmicpc.net/problem/6593
 from collections import deque
+import sys
+M, N, H = map(int, input().split())
 
-S = int(input())
 graph = []
-minv = 1000
-maxv = 0
-for i in range(S):
-    tmplist = list(map(int, input().split()))
-    graph.append(tmplist)
-    for tmp in tmplist:
-        minv = min(minv, tmp)
-        maxv = max(maxv, tmp)
-if minv>0:
-    minv=minv-1
-resultCnt = 0 # 영역갯수 최대인것 찾기
-resultHeight = 0 # 높이 저장
-for height in range(minv, maxv+1):
-    #print("HEight", height)
-    # 0안전영역 1물에잠김 2방문완료
-    visited = [[0]*S for _ in range(S)]
-    
-    
-    # 물에 잠기는 영역 체크
-    for y in range(len(graph)):
-        for x in range(len(graph)):
-            if graph[y][x] <= height:
-                visited[y][x] = 1 # 물에 잠김
+dq = deque([])
+for h in range(H):
+    graph.append([])
+    for n in range(N):   
+        tmplist = list(map(int, sys.stdin.readline().split()))       # sys.stdin.readline().split() 없으면 시간초과남
+        graph[h].append(tmplist)        
+        for num in range(len(tmplist)):            
+            if tmplist[num] == 1:
+                dq.append([num,n,h, 0])
 
-    cnt = 0
-    for y in range(len(graph)):
-        for x in range(len(graph)):
-            if visited[y][x] == 0:                                
-                dq = deque()
-                dq.append([x, y])
-                visited[y][x] = 2                
-                posx = [0,0,1,-1]
-                posy = [1,-1, 0,0]
+# for h in range(H):
+#     for n in range(N): 
+#         for m in range(M): 
+#             print(graph[h][n][m], sep=" ")
 
-                while dq:
-                    tmpx, tmpy = dq.popleft()
-                    for i in range(4):
-                        xx = tmpx + posx[i]
-                        yy = tmpy + posy[i]
+xpos = [0,0,1,-1, 0, 0]
+ypos = [1,-1,0,0, 0, 0]
+hpos = [0,0,0,0, 1, -1]
+lastcnt = 0
+while dq:
+    x, y, h, cnt = dq.popleft()
+    graph[h][y][x] = 1
 
-                        if 0<=xx<S and 0<=yy<S and visited[yy][xx]==0:
-                            visited[yy][xx] = 2
-                            dq.append([xx, yy])
-                cnt += 1    
-    #print(cnt)
-    if resultCnt <= cnt:
-        resultCnt = cnt
-        resultHeight = height
-print(resultCnt)
+    for i in range(6):
+        tmpx = x + xpos[i]
+        tmpy = y + ypos[i]
+        tmph = h + hpos[i]        
+        if 0<=tmpx<M and 0<=tmpy<N and 0<=tmph<H and graph[tmph][tmpy][tmpx]==0:
+            graph[tmph][tmpy][tmpx] = 1
+            dq.append([tmpx, tmpy, tmph, cnt+1])
+            lastcnt = cnt+1
+
+for h in range(H):
+    for n in range(N): 
+        for m in range(M): 
+            if graph[h][n][m] == 0:                
+                print(-1)
+                sys.exit()                
+   
+print(lastcnt)

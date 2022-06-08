@@ -1,4 +1,6 @@
 # 1 (6) [2] 3  [4] 5
+
+# 1 번째 6을 넣는다
 def insert(idx, num, arr):
     arr.append(num)
     for i in range(len(arr)-2, idx-1, -1):
@@ -28,6 +30,6 @@ def eraseTest():
     print(arr)
     erase(3, arr)
     print(arr)
-    
+
 insertTest()
 eraseTest()

@@ -2,7 +2,6 @@
 import sys
 N = input()
 stack = []
-result = 0
 
 for txt in N:
     if txt == "(" or txt == "[" :
@@ -67,3 +66,4 @@ else:
         print(0)  
 
 # 예외 [[]) 정답0 
+# 예외 )) try except 처리

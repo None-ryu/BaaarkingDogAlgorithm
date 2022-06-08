@@ -19,6 +19,3 @@ for i in range(N):
     #print(i, Dlist[i], dq)
     #result.append(dq[0][0])
     print(dq[0][0], end=" ")
-
-
-

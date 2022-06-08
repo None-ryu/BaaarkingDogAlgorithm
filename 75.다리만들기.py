@@ -173,3 +173,65 @@ for i in range(2, cnt+1):
     getBfs(i)
 print(result)
 """
+
+# https://www.acmicpc.net/problem/2146
+from collections import deque
+import sys
+import copy
+
+# 입력값 받기
+N = int(input())
+graph = []
+for i in range(N):
+    tmp = list(map(int, input().split()))
+    graph.append(tmp)
+
+# 넘버링
+ckdq = deque([])
+def bfs(x, y, cnt):
+    global graph
+    dq = deque([])
+    dq.append([x, y])
+    graph[y][x] = cnt
+    ckdq.append([x, y, cnt, 0])
+    posx = [0,0,1,-1]
+    posy = [1,-1,0,0]
+    while dq:
+        tmpx, tmpy = dq.popleft()
+        for i in range(4):
+            xx = tmpx+posx[i]
+            yy = tmpy+posy[i]
+
+            if 0<=xx<N and 0<=yy<N and graph[yy][xx] == 1:
+                graph[yy][xx] = cnt
+                dq.append([xx, yy])
+                ckdq.append([xx, yy, cnt, 0])
+
+cnt = 1
+for y in range(N):
+    for x in range(N):
+        if graph[y][x] == 1:
+            cnt+=1
+            bfs(x, y, cnt)
+
+# for y in graph:
+#     print(y)
+
+
+# bfs로 새로운 영토에 도달하는 순간 체크
+posx = [0,0,1,-1]
+posy = [1,-1,0,0]
+while ckdq:
+    tmpx, tmpy, num, cnt = ckdq.popleft()
+    for i in range(4):
+        xx = tmpx+posx[i]
+        yy = tmpy+posy[i]
+
+        
+        if 0<=xx<N and 0<=yy<N :
+            # 0인 경우에만(가운데는 상관없기 때문에 가에만 체크)
+            if graph[yy][xx] == 0:            
+                ckdq.append([xx, yy, num, cnt+1])            
+            if graph[yy][xx] > 0 and graph[yy][xx] != num:            
+                print(cnt)
+                sys.exit()

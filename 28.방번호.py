@@ -1,9 +1,6 @@
 # https://www.acmicpc.net/problem/1475
-from tkinter import N
-
-# https://www.acmicpc.net/problem/1475
 import math 
-arr = [0]*9
+arr = [0]*9 #9 제외 0~8
 nList = list(map(int, input()))
 
 for i in nList:

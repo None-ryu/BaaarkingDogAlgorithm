@@ -1,8 +1,8 @@
 # https://www.acmicpc.net/problem/10804
 
-arr = [i for i in range(20+1)]
+arr = [i for i in range(20+1)] # 0~20
 for i in range(10):
-    a, b = map(int, input().split())
+    a, b = map(int, input().split()) #5 10
 
     tmparr = []
     # [10,9,8,7,6,5] 뒤집는다.

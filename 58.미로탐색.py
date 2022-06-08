@@ -15,15 +15,16 @@ def bfs(x, y):
     dq.append([x, y, 1])
     visited[y][x] = True
     while dq:
-        xx, yy, cnt = dq.popleft()        
+        xx, yy, cnt = dq.popleft()                
+        if xx == M-1 and yy == N-1:            
+            print(cnt)
+            return
+
         for i in range(4):
             tmpx = xx+dx[i]
             tmpy = yy+dy[i]
+
             if 0<=tmpx<M and 0<=tmpy<N and visited[tmpy][tmpx] is False and graph[tmpy][tmpx] == 1:
                 visited[tmpy][tmpx] = True                
-                dq.append([tmpx, tmpy, cnt+1])
-            
-            if tmpx == M-1 and tmpy == N-1:
-                print(cnt+1)
-                return
+                dq.append([tmpx, tmpy, cnt+1])            
 bfs(0, 0)

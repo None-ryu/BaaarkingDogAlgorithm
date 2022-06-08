@@ -8,7 +8,7 @@ for i in range(N):
 
 visited = [ [False]*M for _ in range(N)]
 
-def bfs(x, y):
+def bfs():
     dx = [0, 0 , 1, -1]
     dy = [1, -1, 0, 0]    
     dq = deque([])
@@ -36,6 +36,6 @@ def bfs(x, y):
                 print(-1)
                 return
     print(result)
-bfs(0, 0)    
+bfs()    
          
 
