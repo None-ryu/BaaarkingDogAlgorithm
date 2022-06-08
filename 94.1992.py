@@ -15,9 +15,6 @@ def section(stx, sty, K):
                     color(tmpx, tmpx+K//2, tmpy, tmpy+K//2, K//2)
 def color(stx, edx, sty, edy, K):
     global result
-    if K == 1:
-        result += str(graph[sty][stx])
-        return
     flag = False
     for i in range(sty, edy):
         for j in range(stx, edx):
