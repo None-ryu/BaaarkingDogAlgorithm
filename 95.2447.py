@@ -1,3 +1,4 @@
+#2447
 N = int(input())
 graph = [["*"]*N for _ in range(N)]
 def star(stx, sty, K):
