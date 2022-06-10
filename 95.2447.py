@@ -3,15 +3,11 @@ graph = [["*"]*N for _ in range(N)]
 def star(stx, sty, K):
     if K == 1:
         return
-    tmpx = -1
-    tmpy = -1
     for i in range(K//3):
         tmpy = sty + K//3 + i
         for j in range(K//3):
             tmpx = stx + K//3 + j
             graph[tmpy][tmpx] = " "
-    newx = -1
-    newy = -1
     for i in range(sty, sty+K):
         if i == 0 or i%(K//3) == 0:
             newy = i
