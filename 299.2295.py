@@ -10,22 +10,22 @@ two = []
 for i in range(len(Ulist)):
     for j in range(len(Ulist)):
         two.append(Ulist[i]+Ulist[j])
-two = list(set(two))
+two = sorted(list(set(two)))
 result = -INF
 for i in range(len(Ulist)-1, -1, -1):
     if Ulist[i] <= result:
         break
-    for j in range(len(two)):
-        tmp = Ulist[i]-two[j]
+    for j in range(len(Ulist)):
+        tmp = Ulist[i]-Ulist[j]
         st = 0
-        ed = len(Ulist)-1
+        ed = len(two)-1
         while st <= ed:
             mid = (st+ed)//2
-            if Ulist[mid] < tmp:
+            if two[mid] < tmp:
                 st = mid+1
-            elif Ulist[mid] == tmp:
+            elif two[mid] == tmp:
                 result = max(Ulist[i], result)
                 break
-            elif Ulist[mid] > tmp:
+            elif two[mid] > tmp:
                 ed = mid-1
 print(result)
