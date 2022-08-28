@@ -21,8 +21,5 @@ def find(num):
         answer.append(num)
 for i in Alist:
     find(i)
-try:
-    print(len(answer))
-    print(*answer)
-except:
-    print(0)
+print(len(answer))
+print(*answer)
