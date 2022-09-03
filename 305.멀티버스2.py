@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/2805
+# https://www.acmicpc.net/problem/18869
 import sys
 input = sys.stdin.readline
 M, N= map(int, input().split()) # M우주 N행성
