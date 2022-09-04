@@ -23,7 +23,7 @@ for i in range(N):
             sys.exit()
         elif solution[i] + solution[mid] < 0:
             low = mid+1
-        if abs(0-(solution[i]+solution[mid])) <= abs(result):
+        if abs(solution[i]+solution[mid]) <= abs(result):
             answer = [solution[i], solution[mid]]
             result = solution[i]+solution[mid]
 print(*sorted(answer))
